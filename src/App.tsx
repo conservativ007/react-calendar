@@ -1,35 +1,26 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect } from "react";
+import Calendar from "./Calendar";
+
+const DATA = {
+  PROJECT_NAME: "conservativBot",
+  T_USER_ID: "749991690",
+  TOKEN:
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjc0OTk5MTY5MCwiaWF0IjoxNzQ4MjYzODM0LCJleHAiOjE3Nzk3OTk4MzR9.bAYPe3BX0jnbH8kzS5STHcSwmR6kUiIQCXslT_v9aOo",
+};
 
 function App() {
-  const [count, setCount] = useState(0)
+  useEffect(() => {
+    const url = new URL(window.location.href);
+    if (!url.searchParams.has("project_name")) {
+      window.location.href = `${window.location.pathname}?project_name=${DATA.PROJECT_NAME}&t_user_id=${DATA.T_USER_ID}&token=${DATA.TOKEN}`;
+    }
+  }, []);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div>
+      <Calendar t_user_id={749991690} />
+    </div>
+  );
 }
 
-export default App
+export default App;

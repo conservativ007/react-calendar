@@ -1,0 +1,232 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f4f4f4;
+}
+
+.calendar-container {
+  width: 100%;
+  max-width: 500px;
+  margin: 20px auto;
+  font-family: Arial, sans-serif;
+  padding: 10px;
+  border-radius: 8px;
+
+  background-color: white;
+  transition: max-height 0.5s ease;
+}
+
+/* .calendar-day {
+  min-width: 50px;
+} */
+
+.calendar-container.collapsed {
+  max-height: 150px; /* при сворачивании */
+}
+
+.calendar-container.expanded {
+  max-height: 1000px; /* при разворачивании */
+}
+
+.calendar-arrow {
+  max-height: 30px;
+  border-radius: 15px;
+  padding: 3px 7px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #f7f7f7;
+}
+
+.calendar-arrow div {
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.calendar-arrow p {
+  padding: 3px 10px;
+  background-color: white;
+  border-radius: 15px;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 0 10px;
+}
+
+.calendar-header h2 {
+  margin: 0;
+  font-size: 1.2em;
+}
+
+.calendar-header button {
+  font-size: 1.5em;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.calendar-header-today {
+  cursor: pointer;
+}
+
+.calendar-weekdays {
+  display: grid;
+  place-items: center;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 5px;
+  gap: 15px;
+}
+
+.weekday {
+  padding: 5px 0;
+}
+
+.calendar-arrow-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  gap: 15px;
+}
+
+.calendar-day {
+  cursor: pointer;
+  font-weight: 600;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 34px;
+}
+
+.calendar-day:hover {
+  background-color: #5846fe;
+  border-radius: 20px;
+  color: white;
+
+  transition: background-color 0.7s;
+}
+
+.not-current {
+  color: #a5a5a5;
+  /* background: #f9f9f9; */
+}
+
+.reminder-indicator-not-current-month {
+  width: 50%;
+  height: 5px;
+  background: #ada2ff;
+  border-radius: 2px;
+  margin: 0px auto;
+}
+
+.reminder-indicator {
+  height: 6px;
+  background: #5945fe;
+  border-radius: 10px;
+  margin: 0px auto;
+}
+
+.indicator1 {
+  width: 8px;
+}
+.indicator2 {
+  width: 12px;
+}
+.indicator3 {
+  width: 16px;
+}
+.indicator4 {
+  width: 20px;
+}
+.indicator5 {
+  width: 24px;
+}
+.indicator6 {
+  width: 28px;
+}
+.indicator7 {
+  width: 32px;
+}
+.indicator8 {
+  width: 36px;
+}
+
+.active-day {
+  background-color: #5846fe;
+  border-radius: 20px;
+  color: white;
+}
+
+.reminder-container {
+  padding: 0 10px;
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.reminder-active-day {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.reminder {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+
+  background-color: white;
+  border-radius: 10px;
+  padding: 5px 20px;
+  /* border-left: 1px solid red; */
+  /* border-left: #5846fe; */
+}
+
+.reminder-separator {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  background-color: #5846fe;
+}
+
+.reminder-container p {
+  margin: 5px;
+  margin-left: 0;
+}
+
+.container-arrow-collapse {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+}
+
+.arrow-down-collapse {
+  transform: rotate(180deg);
+}
